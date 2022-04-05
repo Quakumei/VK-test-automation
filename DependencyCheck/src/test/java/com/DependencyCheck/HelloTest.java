@@ -2,11 +2,15 @@ package com.DependencyCheck;
 
 import org.junit.jupiter.api.Test;
 
-import User;
+import com.DependencyCheck.User;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
+
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
 
 public class HelloTest {
     @Test
@@ -29,6 +33,6 @@ public class HelloTest {
 //        href = /profile/599788983855
 //        /html/body/div[11]/div[5]/div[5]/div[1]/div/div[2]/div[1]/div[3]/div[1]/div/div/div[3]/div/div/div/a[1]
         MainPage result = new MainPage();
-        result.getLinkObj().shouldHave(user.name);
+        result.getLinkObj().shouldHave(text(user.name));
     }
 }
